@@ -5,7 +5,7 @@ class Gearmodel < ActiveHash::Base
     { id: 3, name: '2' }, 
     { id: 4, name: '3' },
     { id: 5, name: '4' },
-    { id: 6, name: '5' },
+    { id: 6, name: '5' }
   ]
 
   include ActiveHash::Associations
