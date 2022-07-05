@@ -1,0 +1,40 @@
+<%= form_with model: @post, url:posts_path, local: true do |f| %>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"post-category"}) %>
+        <div class="weight-bold-text">
+          ブランド
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:brand_id, Brand.all, :id, :name, {}, {class:"select-box", id:"post-brand"}) %>
+        <div class="weight-bold-text">
+          モデル
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:gearmodel_id, Gearmodel.all, :id, :name, {}, {class:"select-box", id:"post-gearmodel"}) %>
+      </div>
+    </div>
+    <div class="items-explain">
+        <div class="weight-bold-text">
+          ギアの説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :text, class:"posts-text", id:"post-text", placeholder:"ギアの説明（必須 255文字まで）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"255" %>
+      </div>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        ギアの画像
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+
+
+<% end %>
