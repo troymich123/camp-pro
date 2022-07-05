@@ -3,3 +3,23 @@ indexページ
 <%= link_to 'ユーザー登録', new_user_registration_path, class: "post" %>
 <%= link_to 'ログイン', new_user_session_path, class: "post" %>
 <%= link_to 'ログアウト', destroy_user_session_path, class: "post" %>
+
+  <ul class='post-lists'>
+    <% @posts.each do |post| %>
+      <li class='list'>
+        <a href="/posts/<%= post.id %>" >
+          <div class='post-img-content'>
+            <%= image_tag post.image, class: "post-img" %>
+          </div>
+          <div class='post-info'>
+            <h3 class='post-name'>
+              <%= post.gearmodel.name %>
+            </h3>
+            <div class='post-price'>
+              <span><%= post.brand.name %><br><%= post.category.name %></span>
+            </div>
+          </div>
+        </a>
+      </li>
+    <% end %>
+  </ul>
