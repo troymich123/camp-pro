@@ -1,0 +1,74 @@
+<div class="post-show">
+  <div class="post-box">
+    <h2 class="name">
+      <%= @post.gearmodel.name %>
+    </h2>
+    <div class="post-img-content">
+      <%= image_tag @post.image ,class:"post-box-img" %>
+    </div>
+    <div class="post-price-box">
+      <span class="post-price">
+        <%= @post.brand.name %>
+      </span>
+      <span class="post-postage">
+        <%= @post.category.name %>
+      </span>
+    </div>
+
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <%= link_to "ギアの編集", edit_post_path, method: :get, class: "post-red-btn" %>
+      <p class="or-text">or</p>
+      <%= link_to "削除", post_path, method: :delete, class:"post-destroy" %>
+    <% end %>
+
+    <div class="post-explain-box">
+      <span><%= @post.text %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-post">出品者</th>
+          <td class="detail-value"><%= @post.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-post">カテゴリー</th>
+          <td class="detail-value"><%= @post.category.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-post">商品の状態</th>
+          <td class="detail-value"><%= @post.brand.name %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+    </div>
+  </div>
+  <%# /商品の概要 %>
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="comment-btn">
+        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+  <div class="links">
+    <a href="#" class="change-post-btn">
+      ＜ 前の商品
+    </a>
+    <a href="#" class="change-post-btn">
+      後ろの商品 ＞
+    </a>
+  </div>
+</div>
