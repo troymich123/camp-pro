@@ -1,44 +1,67 @@
-<%= form_with model: @post, url:posts_path, local: true do |f| %>
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"post-category"}) %>
-        <div class="weight-bold-text">
-          ブランド
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:brand_id, Brand.all, :id, :name, {}, {class:"select-box", id:"post-brand"}) %>
-        <div class="weight-bold-text">
-          モデル
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:gearmodel_id, Gearmodel.all, :id, :name, {}, {class:"select-box", id:"post-gearmodel"}) %>
-      </div>
-    </div>
-    <div class="items-explain">
-        <div class="weight-bold-text">
-          ギアの説明
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :text, class:"posts-text", id:"post-text", placeholder:"ギアの説明" ,rows:"7" ,maxlength:"255" %>
-      </div>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        ギアの画像
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックして画像をアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
-    </div>
+<!doctype html>
+<html lang="ja">
+<body>
+<%= render "shared/header" %>
 
-    <div class="sell-btn-contents">
-      <%= f.submit "登録" ,class:"sell-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
-    </div>
+  <main>
+    <div class="container-fluid text-center py-3 bg-light">
+      <div class="row-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
 
-<% end %>
+        <%= form_with model: @post, id: 'new_post', local: true do |f| %>
+          <div class="col">
+            <div class="w-50 img-fluid", id="previews"></div>
+            <div class="img-upload">
+              <div class="click-upload">
+                <label for="gearimagepost">ギア画像</label>
+                <%= f.file_field :image, class:"form-control", id:"gearimagepost" %>
+              </div>
+            </div>
+
+            <div class="inputcategory">
+              <label for="inputcategory">カテゴリー</label>
+              <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control", id:"inputcategory"}) %>
+            </div>
+
+            <div class="inputbrand">
+              <label for="inputbrand">ブランド</label>
+              <%= f.collection_select(:brand_id, Brand.all, :id, :name, {}, {class:"form-control", id:"inputbrand"}) %>
+            </div>
+
+
+            <div class="gearmodel">
+              <label for="gearmodel">ギア名</label>
+              <%= f.text_area :gearmodel, class:"form-control", id:"gearmodel", placeholder:"ギアのモデル（必須 40文字まで)", maxlength:"40" %>
+            </div>
+
+            <div class="geartext">
+              <label for="geartext">ギアの説明</label>
+              <%= f.text_area :text, class:"form-control", id:"geartext", placeholder:"商品の説明（必須 1,000文字まで）例）2020年頃に1万円で購入したテントです。ポリコットン製で重量はありますが見た目に惚れて買いました。" ,rows:"7" ,maxlength:"1000" %>
+            </div>
+            <br>
+            <div class="submitchange">
+              <%= f.submit "投稿する" , class:"btn btn-secondary btn-sm" %>
+              <%= link_to 'もどる', root_path, class:"btn btn-sm btn-outline-secondary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </main>
+
+<%= render "shared/footer" %>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+  <!-- popper -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
