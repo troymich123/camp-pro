@@ -1,26 +1,59 @@
-<h2>Log in</h2>
+<!doctype html>
+<html lang="ja">
+<body>
+<%= render "shared/header" %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <main>
+    <div class="container-fluid text-center py-3 bg-light">
+      <div class="row-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+            <div class="inputemail">
+              <label for="inputemail">e-mail</label>
+              <%= f.email_field :email, autocomplete: "email", class:"form-control", id:"inputbrand" %>
+            </div>
+
+            <div class="password">
+              <label for="password">パスワード</label>
+              <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"password" %>
+            </div>
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end %>
+            <br>
+            <div class="submitchange">
+              <%= f.submit "ログイン" , class:"btn btn-secondary btn-sm" %>
+              <%= link_to 'もどる', root_path, class:"btn btn-sm btn-outline-secondary" %>
+            </div>
+            <br>
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+              <%= link_to "パスワードを忘れた方はこちら", new_password_path(resource_name) %><br />
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+  </main>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+<%= render "shared/footer" %>
 
-<%= render "devise/shared/links" %>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+  <!-- popper -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>

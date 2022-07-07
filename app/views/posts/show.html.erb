@@ -26,13 +26,24 @@
       </div>
     </div>
 
-    <% if user_signed_in? %>  
-      <div class="container-fluid text-center py-3 bg-light">
-        <div class="card mb-3 w-90 p-4 mx-auto shadow-sm">
+  <div class="container-fluid text-center py-3 bg-light">
+    <div class="card mb-3 w-90 p-4 mx-auto shadow-sm">
+      <ul class="comments_lists">
+        <% @comments.each do |comment| %>
+          <%= comment.text %>
+          <br>
+          by <%= comment.user.nickname %>
+          <br>
+          <%= comment.created_at.to_s(:datetime_jp) %>
+          <br>
+          <br>
+        <% end %>
+      </ul>
+        <% if user_signed_in? %>  
           <%= form_with model: [@post, @comment], local: true do |f| %>
               <div class="form-group">
                 <%= f.label :text, 'コメントする', class:'control-label' %>
-                <%= f.text_field :text, id:'comment_text', class:'form-control', rows:"3", maxlength:"1000" %>
+                <%= f.text_area :text, id:'comment_text', class:'form-control', rows:"3", maxlength:"1000" %>
               </div>
               <br>
               <div class="row">
@@ -47,9 +58,10 @@
                   </p>
               </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+
   </main>
 
 <%= render "shared/footer" %>
