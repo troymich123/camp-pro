@@ -1,74 +1,71 @@
-<div class="post-show">
-  <div class="post-box">
-    <h2 class="name">
-      <%= @post.gearmodel.name %>
-    </h2>
-    <div class="post-img-content">
-      <%= image_tag @post.image ,class:"post-box-img" %>
-    </div>
-    <div class="post-price-box">
-      <span class="post-price">
-        <%= @post.brand.name %>
-      </span>
-      <span class="post-postage">
-        <%= @post.category.name %>
-      </span>
-    </div>
+<!doctype html>
+<html lang="ja">
+<body>
+<%= render "shared/header" %>
 
-    <% if user_signed_in? && current_user.id == @post.user_id %>
-      <%= link_to "ギアの編集", edit_post_path, method: :get, class: "post-red-btn" %>
-      <p class="or-text">or</p>
-      <%= link_to "削除", post_path, method: :delete, class:"post-destroy" %>
-    <% end %>
-
-    <div class="post-explain-box">
-      <span><%= @post.text %></span>
-    </div>
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-post">出品者</th>
-          <td class="detail-value"><%= @post.user.nickname %></td>
-        </tr>
-        <tr>
-          <th class="detail-post">カテゴリー</th>
-          <td class="detail-value"><%= @post.category.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-post">商品の状態</th>
-          <td class="detail-value"><%= @post.brand.name %></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
+  <main>
+    <div class="container-fluid text-center py-3 bg-light">
+      <div class="card mb-3 w-90 p-4 mx-auto shadow-sm">
+        <%= image_tag @post.image %>
+        <div class="card-body">
+          <h4 class="card-title"><%= @post.gearmodel.name %></h4>
+          <p class="card-title">オーナー：<%= @post.user.nickname %>さん</p>
+          <p class="card-title">カテゴリー：<%= @post.category.name %></p>
+          <p class="card-title">ブランド：<%= @post.brand.name %></p>
+          <p class="card-text">ギアの説明：<%= @post.text %></p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <% if user_signed_in? && current_user.id == @post.user_id %>  
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+              <%= link_to "編集", edit_post_path, method: :get, class:'text-reset' %>
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+              <%= link_to "削除", post_path, method: :delete, class:'text-reset' %>
+            </button>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  <%# /商品の概要 %>
 
-  <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
-  </div>
-  <div class="links">
-    <a href="#" class="change-post-btn">
-      ＜ 前の商品
-    </a>
-    <a href="#" class="change-post-btn">
-      後ろの商品 ＞
-    </a>
-  </div>
-</div>
+    <% if user_signed_in? %>  
+      <div class="container-fluid text-center py-3 bg-light">
+        <div class="card mb-3 w-90 p-4 mx-auto shadow-sm">
+          <%= form_with model: [@post, @comment], local: true do |f| %>
+              <div class="form-group">
+                <%= f.label :text, 'コメントする', class:'control-label' %>
+                <%= f.text_field :text, id:'comment_text', class:'form-control', rows:"3", maxlength:"1000" %>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col">
+                  <%= f.submit '送信', class:"btn btn-secondary btn-sm" %>
+                </div>
+                  <p class="comment-warn">
+                    <small class="text-muted">
+                      相手のことを考え丁寧なコメントを心がけましょう。<br>
+                      不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                    </small>
+                  </p>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </main>
+
+<%= render "shared/footer" %>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+  <!-- popper -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>

@@ -1,84 +1,67 @@
-  <%= form_with model: @post, local: true do |f| %>
+<!doctype html>
+<html lang="ja">
+<body>
+<%= render "shared/header" %>
 
-    <%
-=begin%>
- <%= render 'shared/error_messages', model: f.object %> 
-<%
-=end%>
+  <main>
+    <div class="container-fluid text-center py-3 bg-light">
+      <div class="row-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
 
-    <%# 商品画像 %>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        ギア画像
-        <span class="indispensable">必須</span>
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"post-image" %>
-      </div>
-    </div>
-    <%# /商品画像 %>
-    <%# 商品名と商品説明 %>
-    <div class="new-posts">
-      <div class="weight-bold-text">
-        商品名
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_area :gearmodel_id, class:"posts-text", id:"post-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-      <div class="posts-explain">
-        <div class="weight-bold-text">
-          商品の説明
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :text, class:"posts-text", id:"post-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-    </div>
-    <%# /商品名と商品説明 %>
+        <%= form_with model: @post, local: true do |f| %>
+          <div class="col">
+            <%= image_tag @post.image, class:"img-fluid" %>
+            <div class="img-upload">
+              <div class="click-upload">
+                <label for="gearimagepost">ギア画像</label>
+                <%= f.file_field :image, class:"form-control", id:"gearimagepost" %>
+              </div>
+            </div>
 
-    <%# 商品の詳細 %>
-    <div class="posts-detail">
-      <div class="weight-bold-text">商品の詳細</div>
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"post-category"}) %>
-        <div class="weight-bold-text">
-          ブランド
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:brand_id, Brand.all, :id, :name, {}, {class:"select-box", id:"post-sales-status"}) %>
+            <div class="inputcategory">
+              <label for="inputcategory">カテゴリー</label>
+              <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control", id:"inputcategory"}) %>
+            </div>
+
+            <div class="inputbrand">
+              <label for="inputbrand">ブランド</label>
+              <%= f.collection_select(:brand_id, Brand.all, :id, :name, {}, {class:"form-control", id:"inputbrand"}) %>
+            </div>
+
+
+            <div class="gearmodel">
+              <label for="gearmodel">ギア名</label>
+              <%= f.text_area :gearmodel_id, class:"form-control", id:"gearmodel", placeholder:"ギアのモデル（必須 40文字まで)", maxlength:"40" %>
+            </div>
+
+            <div class="geartext">
+              <label for="geartext">ギアの説明</label>
+              <%= f.text_area :text, class:"form-control", id:"geartext", placeholder:"商品の説明（必須 1,000文字まで）例）2020年頃に1万円で購入したテントです。ポリコットン製で重量はありますが見た目に惚れて買いました。" ,rows:"7" ,maxlength:"1000" %>
+            </div>
+            <br>
+            <div class="submitchange">
+              <%= f.submit "変更する" , class:"btn btn-secondary btn-sm" %>
+              <%= link_to 'もどる', post_path, class:"btn btn-sm btn-outline-secondary" %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-    <%# /商品の詳細 %>
+  </main>
 
-    <%# 注意書き %>
-    <div class="caution">
-      <p class="sentence">
-        <a href="#">禁止されている出品、</a>
-        <a href="#">行為</a>
-        を必ずご確認ください。
-      </p>
-      <p class="sentence">
-        またブランド品でシリアルナンバー等がある場合はご記載ください。
-        <a href="#">偽ブランドの販売</a>
-        は犯罪であり処罰される可能性があります。
-      </p>
-      <p class="sentence">
-        また、出品をもちまして
-        <a href="#">加盟店規約</a>
-        に同意したことになります。
-      </p>
-    </div>
-    <%# /注意書き %>
-    <%# 下部ボタン %>
-    <div class="sell-btn-contents">
-      <%= f.submit "変更する" , class:"sell-btn" %>
-      <%= link_to 'もどる', post_path, class:"back-btn" %>
-    </div>
-    <%# /下部ボタン %>
-  </div>
-  <% end %>
+<%= render "shared/footer" %>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+  <!-- popper -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
