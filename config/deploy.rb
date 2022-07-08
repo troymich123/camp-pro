@@ -5,7 +5,7 @@ lock '3.17.0'
 set :application, 'camp-pro'
 
 # どのリポジトリからアプリをpullするかを指定する
-set :repo_url,  'git@github.com:troymich/camp-pro.git'
+set :repo_url,  'git@github.com:troymich123/camp-pro.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
