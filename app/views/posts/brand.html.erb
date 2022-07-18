@@ -7,16 +7,13 @@
     <div class="text-center container-fluid bg-light">
       <div class="card w-90 p-0 mx-auto shadow-sm">
         <div class="card-body">
-          <h4 class="card-title"><%= @user.nickname %>さん</h4>
-          <% if user_signed_in? && current_user.id == @user.id %>
-            <button type="button" class="btn btn-sm btn-outline-secondary">
-              <%= link_to 'ユーザー情報修正', edit_user_registration_path, class:'text-reset' %>
-            </button>
-          <% end %>
+          <h4 class="card-title"></h4>
 
           <div class="album py-3 bg-light">
             <div class="container">
-              <h4 class="text-center">ギア投稿一覧</h4>
+            <% if @post.present? %>
+              <h4 class="text-center"><%= @post.brand.name %> 投稿一覧</h4>
+            <% end %>
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <% @posts.each do |post| %>
                   <div class="col">
@@ -89,3 +86,4 @@
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
 </body>
+

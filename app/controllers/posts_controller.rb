@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.order('created_at DESC')
+    @posts = Post.includes(:likes)
   end
 
   def new
@@ -40,6 +41,16 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to root_path
+  end
+
+  def category
+    @post = Post.find_by(category_id: params[:id])
+    @posts = Post.where(category_id: params[:id]).order('created_at DESC')
+  end
+
+  def brand
+    @post = Post.find_by(brand_id: params[:id])
+    @posts = Post.where(brand_id: params[:id]).order('created_at DESC')
   end
 
   private
