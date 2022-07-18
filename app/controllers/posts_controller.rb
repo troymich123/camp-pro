@@ -43,6 +43,16 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def category
+    @post = Post.find_by(category_id: params[:id])
+    @posts = Post.where(category_id: params[:id]).order('created_at DESC')
+  end
+
+  def brand
+    @post = Post.find_by(brand_id: params[:id])
+    @posts = Post.where(brand_id: params[:id]).order('created_at DESC')
+  end
+
   private
 
   def post_params
