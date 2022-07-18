@@ -9,8 +9,8 @@
         <div class="card-body">
           <h4 class="card-title"><%= @user.nickname %>さん</h4>
           <% if user_signed_in? && current_user.id == @user.id %>
-            <button type="button" class="btn btn-sm btn-secondary">
-              <%= link_to 'ユーザー情報更新', edit_user_registration_path, class:'text-reset' %>
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+              <%= link_to 'ユーザー情報修正', edit_user_registration_path, class:'text-reset' %>
             </button>
           <% end %>
 
