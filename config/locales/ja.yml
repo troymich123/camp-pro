@@ -2,3 +2,10 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "..."

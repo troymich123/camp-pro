@@ -1,25 +1,29 @@
 <%= render "shared/header" %>
-    <main>
-      <section class="text-center container-fluid bg-light">
-        <div class='title-contents'>
-          <div class="row py-lg-3">
-            <div class="col-lg-9 col-md-12 mx-auto">
-              <br>
-              <h1 class="fw-light-ext">ギア好きキャンパーたちが集うCamp Pro</h1>
-              <br>
-              <p class="lead-ext">自慢のギアを他のキャンパーたちと共有しよう</p>
-              <br>
-            </div>
+
+  <main>
+  
+    <section class="text-center container-fluid bg-light">
+      <div class='title-contents'>
+        <div class="row py-lg-3">
+          <div class="col-lg-9 col-md-12 mx-auto">
+            <br>
+            <h1 class="fw-light-ext">ギア好きキャンパーたちが集うCamp Pro</h1>
+            <br>
+            <p class="lead-ext">自慢のギアを他のキャンパーたちと共有しよう</p>
+            <br>
           </div>
         </div>
-      </section>
-      <h4 class="text-center py-3 bg-light">最新のギア投稿</h4>
-      <div class="album py-3 bg-light">
-        <%= render "shared/album" %>
-        <br>
-        <%= paginate @posts, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center" %>
       </div>
+    </section>
 
-    </main>
+    <h4 class="text-center py-3 bg-light">最新のギア投稿</h4>
+
+    <div class="album py-3 bg-light">
+      <%= render "shared/album" %>
+      <br>
+      <%= paginate @posts, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+    </div>
+
+  </main>
 
 <%= render "shared/footer" %>
