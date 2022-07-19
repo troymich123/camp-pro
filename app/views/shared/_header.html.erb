@@ -19,9 +19,11 @@
             <li><a href="/brands" class="nav-link px-2 link-dark">ブランド</a></li>
           </ul>
 
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control" placeholder="検索..." aria-label="Search">
-          </form>
+          <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <%= search_form_for @search, url: search_posts_path do |f| %>
+              <%= f.text_field :gearmodel_or_text_cont, placeholder: '検索...', class:"form-control" %>
+            <% end %>
+          </div>
 
           <div class="dropdown text-end">
             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-toggle="dropdown" aria-expanded="false">
