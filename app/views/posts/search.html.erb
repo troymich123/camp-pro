@@ -1,18 +1,13 @@
-<!doctype html>
-<html lang="ja">
-<body>
-
- <%= render "shared/header" %> 
+<%= render "shared/header" %> 
 
   <main>
     <div class="text-center container-fluid bg-light">
       <div class="card w-90 p-0 mx-auto shadow-sm">
         <div class="card-body">
-          <h4 class="card-title"></h4>
+          <h4 class="text-center py-3 bg-light">検索結果</h4>
 
           <div class="album py-3 bg-light">
             <div class="container">
-              <h4 class="text-center">検索結果</h4>
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <% @posts.each do |post| %>
                   <div class="col">
@@ -69,19 +64,3 @@
   </main>
 
 <%= render "shared/footer" %>
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"></script>
-  <!-- popper -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"></script>
-  <!-- Bootstrap -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-</body>
