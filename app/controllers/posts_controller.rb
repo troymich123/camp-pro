@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.includes(:likes).order(created_at: :desc).page(params[:page]).per(6)
+    @posts_best = Post.all.includes(:likes).sort {|a,b| b.likes.size <=> a.likes.size}
   end
 
   def new

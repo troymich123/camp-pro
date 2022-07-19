@@ -29,9 +29,9 @@
         <% @comments.each do |comment| %>
           <%= comment.text %>
           <br>
-          by <%= comment.user.nickname %>
+          by <small><%= comment.user.nickname %>
           <br>
-          <%= comment.created_at.to_s(:datetime_jp) %>
+          <%= comment.created_at.to_s(:datetime_jp) %></small>
           <br>
           <br>
         <% end %>
