@@ -2,15 +2,17 @@
 
   <main>
     <div class="container-fluid text-center py-3 bg-light">
-      <div class="card mb-3 w-90 p-4 mx-auto shadow-sm">
-        <%= image_tag @post.image %>
+      <div class="card w-90 p-3 mx-auto shadow-sm">
+        <h4 class="card-title"><%= @post.gearmodel %></h4>
+        <p><small>
+          <%= link_to @post.brand.name, "/posts/brand/#{@post.brand_id}", class:"text-muted" %> > 
+          <%= link_to @post.category.name, "/posts/category/#{@post.category_id}", class:"text-muted" %>
+        </small></p>
+
+        <%= image_tag @post.image, class:"mx-auto rounded w-75" %>
         <div class="card-body">
-          <h4 class="card-title"><%= @post.gearmodel %></h4>
           <p class="card-title">オーナー：<%= @post.user.nickname %>さん</p>
-          <p class="card-title">カテゴリー：<%= @post.category.name %></p>
-          <p class="card-title">ブランド：<%= @post.brand.name %></p>
           <p class="card-text">ギアの説明：<%= @post.text %></p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           <% if user_signed_in? && current_user.id == @post.user_id %>  
             <button type="button" class="btn btn-sm btn-outline-secondary">
               <%= link_to "編集", edit_post_path, method: :get, class:'text-reset' %>
@@ -23,15 +25,17 @@
       </div>
     </div>
 
-  <div class="container-fluid text-center py-3 bg-light">
+  <div class="container-fluid text-center pb-1 bg-light">
     <div class="card mb-3 w-90 p-4 mx-auto shadow-sm">
       <ul class="comments_lists">
         <% @comments.each do |comment| %>
-          <%= comment.text %>
-          <br>
-          by <small><%= comment.user.nickname %>
-          <br>
-          <%= comment.created_at.to_s(:datetime_jp) %></small>
+          <%= comment.text %> 
+
+          <small>
+            by
+            <%= comment.user.nickname %>さん 
+            <%= comment.created_at.to_s(:datetime_jp) %>
+          </small>
           <br>
           <br>
         <% end %>

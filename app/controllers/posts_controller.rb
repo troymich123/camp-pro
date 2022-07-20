@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @posts = Post.all.includes(:likes).order(created_at: :desc).page(params[:page]).per(6)
+    @posts = Post.all.includes(:likes).order(updated_at: :desc).page(params[:page]).per(6)
     @posts_best = Post.all.includes(:likes).sort {|a,b| b.likes.size <=> a.likes.size}
   end
 
