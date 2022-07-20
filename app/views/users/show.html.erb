@@ -6,8 +6,158 @@
         <div class="card-body">
           <h4 class="text-center py-3 bg-light"><%= @user.nickname %>さんのギア一覧</h4>
 
-          <div class="album py-3 bg-light">
-            <%= render "shared/album" %>
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">テント/タープ</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts1.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">寝具</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts2.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">クーラーボックス</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts3.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">調理器具</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts4.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">燃料/着火用具</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts5.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">テーブルウェア(食器)</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts6.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">ファーニチャー</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts7.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">ライト/ランタン</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts8.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">暖房器具(ストーブ/ヒーター)</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts9.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">収納ボックス/収納ラック</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts10.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">キャリー/カート</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts11.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">サーキュレーター</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts12.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">ポータブル電源</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts13.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="album pb-3 mb-2 bg-light">
+            <h5 class="text-center py-3 bg-light">その他キャンプ用品</h5>
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <% @posts14.each do |post| %>
+                  <%= render "shared/albumdetail", post: post %>
+                <% end %>
+              </div>
+            </div>
           </div>
 
         </div>
