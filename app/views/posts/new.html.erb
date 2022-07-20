@@ -6,9 +6,8 @@
       <div class="row-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
 
         <%= form_with model: @post, id: 'new_post', local: true do |f| %>
+          <%= render 'shared/error_messages', model: f.object %>
 
-        <%= render 'shared/error_messages', model: f.object %>
-        
           <div class="col">
             <div id="previews"></div>
             <div class="img-upload">

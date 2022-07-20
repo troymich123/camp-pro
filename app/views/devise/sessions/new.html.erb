@@ -9,7 +9,7 @@
           <%= render "devise/shared/error_messages", resource: resource %>
 
             <div class="inputemail">
-              <label for="inputemail">e-mail</label>
+              <label for="inputemail">Eメール</label>
               <%= f.email_field :email, autocomplete: "email", class:"form-control", id:"inputbrand" %>
             </div>
 
@@ -17,6 +17,7 @@
               <label for="password">パスワード</label>
               <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"password" %>
             </div>
+            <br>
             <% if devise_mapping.rememberable? %>
               <div class="field">
                 <%= f.check_box :remember_me %>
