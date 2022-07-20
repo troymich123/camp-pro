@@ -6,7 +6,7 @@
       <div class="row-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render "/shared/error_messages", model: f.object %>
 
             <div class="nickname">
               <label for="nickname">ニックネーム</label>
