@@ -9,6 +9,14 @@ class Post < ApplicationRecord
   belongs_to :brand
   has_one_attached :image
 
+  validates :image, presence: true
+  with_options presence: true, numericality: { other_than: 1, message: "can't be blank" } do
+    validates :category_id
+    validates :brand_id
+  end
+  validates :gearmodel, presence: true, length: { maximum: 40 }
+  validates :text, presence: true, length: { maximum: 1000 }
+
   def liked?(user)
     likes.where(user_id: user.id).exists?
   end
