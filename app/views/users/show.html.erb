@@ -5,6 +5,11 @@
       <div class="card w-90 p-0 mx-auto shadow-sm">
         <div class="card-body">
           <h4 class="text-center py-3 bg-light"><%= @user.nickname %>さんのギア一覧</h4>
+          <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar, size: "64x64", class:"mx-auto rounded-circle" %>
+          <%else%>
+            <%= image_tag "noavatar.png", size: "64x64", class:"mx-auto rounded-circle" %>
+          <% end %>
 
           <div class="album pb-3 mb-2 bg-light">
             <h5 class="text-center py-3 bg-light">テント/タープ</h5>
