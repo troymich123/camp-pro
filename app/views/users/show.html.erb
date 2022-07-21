@@ -12,12 +12,24 @@
             <% else %>
               <%= image_tag "noavatar.png", size: "64x64", class:"rounded-circle img-fluid" %>
             <% end %>
+            <p class="d-flex justify-content-end">
+            <% if user_signed_in? && @user == current_user %>
+              <%= link_to "ユーザー情報編集", edit_user_registration_path, class: "mt-2 mx-auto btn-sm btn-secondary" %> 
+            <% end %>
+            <% if current_user != @user %>
+              <% if current_user.following?(@user) %>
+                <%= link_to 'フォローを外す', user_relationships_path(@user.id), method: :delete, class: "mt-2 mx-auto btn-sm btn-link" %>
+              <% else %>
+                <%= link_to 'フォローする', user_relationships_path(@user.id), method: :POST, class:"mt-2 mx-auto btn-sm btn-secondary" %>
+              <% end %>
+            <% end %>
+            </p>
             <div>
-            フォロー数: ○人
-            フォロワー数: ○人
+            フォロー数: <%= @following_users.count %>人
+            フォロワー数: <%= @follower_users.count %>人
             </div>
             <div>
-            ギア数: <%= @posts.count %>個
+            登録ギア数: <%= @posts.count %>個
             </div>
           </div>
 

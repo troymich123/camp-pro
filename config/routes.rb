@@ -8,7 +8,12 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get :follows, :followers
+    end
+    resource :relationships, only: [:create, :destroy]
+  end
   resources :categories, only: [:index]
   resources :brands, only: [:index]
   get '/posts/category/:id', to: "posts#category"
