@@ -11,7 +11,7 @@
 
         <%= image_tag @post.image, class:"mx-auto rounded w-75" %>
         <div class="card-body">
-          <p class="card-title">オーナー：<%= @post.user.nickname %>さん</p>
+          <p class="card-title">オーナー：<%= link_to @post.user.nickname, user_path(@post.user.id), class:"text-muted" %>さん</p>
           <p class="card-text">ギアの説明：<%= @post.text %></p>
           <% if user_signed_in? && current_user.id == @post.user_id %>  
             <button type="button" class="btn btn-sm btn-outline-secondary">
@@ -33,7 +33,8 @@
 
           <small>
             by
-            <%= comment.user.nickname %>さん 
+            <%= link_to comment.user.nickname, user_path(comment.user.id), class:"text-muted" %>さん 
+            at
             <%= comment.created_at.to_s(:datetime_jp) %>
           </small>
           <br>
