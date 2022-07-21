@@ -9,7 +9,12 @@
           <%= link_to @post.category.name, "/posts/category/#{@post.category_id}", class:"text-muted" %>
         </small></p>
 
-        <%= image_tag @post.image, class:"mx-auto rounded w-75" %>
+        <% if @post.image.present? %>
+          <%= image_tag @post.image, class: "mx-auto rounded w-75 img-fluid" %>
+        <% else %>
+          <%= image_tag "nophoto.png", size:"300x200", class: "mx-auto rounded w-75 img-fluid" %>
+        <% end %>
+
         <div class="card-body">
           <p class="card-title">オーナー：<%= link_to @post.user.nickname, user_path(@post.user.id), class:"text-muted" %>さん</p>
           <p class="card-text">ギアの説明：<%= @post.text %></p>

@@ -1,6 +1,10 @@
 <div class="col">
   <div class="card shadow-sm">
-    <%= image_tag post.image, class: "post-img" %>
+    <% if post.image.present? %>
+      <%= image_tag post.image, class: "post-img" %>
+    <% else %>
+      <%= image_tag "nophoto.png", size:"300x200", class: "post-img" %>
+    <% end %>
     <div class="card-body">
       <p><small>
         <%= link_to post.brand.name, "/posts/brand/#{post.brand_id}", class:"text-muted" %> > 
