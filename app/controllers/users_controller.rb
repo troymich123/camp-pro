@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).reverse_order
     @posts1 = @user.posts.where(user_id: @user.id, category_id: [2,3,4]).order(updated_at: :desc)
     @posts2 = @user.posts.where(user_id: @user.id, category_id: [5,6,7,8,9,10,11]).order(updated_at: :desc)
     @posts3 = @user.posts.where(user_id: @user.id, category_id: [12,13,14,15]).order(updated_at: :desc)
@@ -16,5 +16,24 @@ class UsersController < ApplicationController
     @posts12 = @user.posts.where(user_id: @user.id, category_id: [61]).order(updated_at: :desc)
     @posts13 = @user.posts.where(user_id: @user.id, category_id: [62]).order(updated_at: :desc)
     @posts14 = @user.posts.where(user_id: @user.id, category_id: [63,64,65]).order(updated_at: :desc)
+    @following_users = @user.following_user
+    @follower_users = @user.follower_user
   end
+
+  def follows
+    @user = User.find(params[:id])
+    @users = @user.following_user.reverse_order
+    @following_users = @user.following_user
+    @follower_users = @user.follower_user
+    @posts = @user.posts.page(params[:page]).reverse_order
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.follower_user.reverse_order
+    @following_users = @user.following_user
+    @follower_users = @user.follower_user
+    @posts = @user.posts.page(params[:page]).reverse_order
+  end
+  
 end
