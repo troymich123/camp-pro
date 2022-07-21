@@ -6,6 +6,21 @@
         <div class="card-body">
           <h4 class="text-center py-3 bg-light"><%= @user.nickname %>さんのギア一覧</h4>
 
+          <div class="text-center bg-light p-3 mb-2">
+            <% if @user.avatar.attached? %>
+              <%= image_tag @user.avatar, size: "64x64", class:"rounded-circle img-fluid" %>
+            <% else %>
+              <%= image_tag "noavatar.png", size: "64x64", class:"rounded-circle img-fluid" %>
+            <% end %>
+            <div>
+            フォロー数: ○人
+            フォロワー数: ○人
+            </div>
+            <div>
+            ギア数: <%= @posts.count %>個
+            </div>
+          </div>
+
           <div class="album pb-3 mb-2 bg-light">
             <h5 class="text-center py-3 bg-light">テント/タープ</h5>
             <div class="container">

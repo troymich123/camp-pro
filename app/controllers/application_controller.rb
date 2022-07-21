@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_search
+  before_action :set_avatar
 
   private
 
@@ -12,7 +13,14 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :avatar])
+  end
+
+  def set_avatar
+    if user_signed_in?
+      @myuser = User.find(current_user[:id])
+    end
   end
 
   def set_search
