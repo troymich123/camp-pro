@@ -33,7 +33,7 @@
 
           <div class="dropdown text-end">
             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-toggle="dropdown" aria-expanded="false">
-              <% if user_signed_in? %>
+              <% if user_signed_in? && @myuser.avatar.attached? %>
                 <%= image_tag @myuser.avatar, size: "32x32", class:"mx-auto rounded-circle" %>
               <% else %>
                 <%= image_tag "noavatar.png", size: "32x32", class:"mx-auto rounded-circle" %>
