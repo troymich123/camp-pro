@@ -6,7 +6,11 @@
 
         <%= form_with model: @post, local: true do |f| %>
           <div class="col">
-            <%= image_tag @post.image, class:"img-fluid" %>
+            <% if @post.image.present? %>
+              <%= image_tag @post.image, class: "mx-auto rounded w-75 img-fluid" %>
+            <% else %>
+              <%= image_tag "nophoto.png", size:"300x200", class: "mx-auto rounded w-75 img-fluid" %>
+            <% end %>
             <div class="img-upload">
               <div class="click-upload">
                 <label for="gearimagepost">ギア画像</label>
@@ -15,23 +19,23 @@
             </div>
 
             <div class="inputcategory">
-              <label for="inputcategory">カテゴリー</label>
+              <label for="inputcategory">カテゴリー*</label>
               <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control", id:"inputcategory"}) %>
             </div>
 
             <div class="inputbrand">
-              <label for="inputbrand">ブランド</label>
+              <label for="inputbrand">ブランド*</label>
               <%= f.collection_select(:brand_id, Brand.all, :id, :name, {}, {class:"form-control", id:"inputbrand"}) %>
             </div>
 
 
             <div class="gearmodel">
-              <label for="gearmodel">ギア名</label>
+              <label for="gearmodel">ギア名*</label>
               <%= f.text_area :gearmodel, class:"form-control", id:"gearmodel", placeholder:"ギアのモデル（必須 40文字まで)", maxlength:"40" %>
             </div>
 
             <div class="geartext">
-              <label for="geartext">ギアの説明</label>
+              <label for="geartext">ギアの説明*</label>
               <%= f.text_area :text, class:"form-control", id:"geartext", placeholder:"商品の説明（必須 1,000文字まで）例）2020年頃に1万円で購入したテントです。ポリコットン製で重量はありますが見た目に惚れて買いました。" ,rows:"7" ,maxlength:"1000" %>
             </div>
             <br>

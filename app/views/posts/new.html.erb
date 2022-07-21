@@ -19,23 +19,23 @@
             </div>
 
             <div class="inputcategory">
-              <label for="inputcategory">カテゴリー</label>
+              <label for="inputcategory">カテゴリー*</label>
               <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control", id:"inputcategory"}) %>
             </div>
 
             <div class="inputbrand">
-              <label for="inputbrand">ブランド</label>
+              <label for="inputbrand">ブランド*</label>
               <%= f.collection_select(:brand_id, Brand.all, :id, :name, {}, {class:"form-control", id:"inputbrand"}) %>
             </div>
 
 
             <div class="gearmodel">
-              <label for="gearmodel">ギア名</label>
+              <label for="gearmodel">ギア名*</label>
               <%= f.text_area :gearmodel, class:"form-control", id:"gearmodel", placeholder:"ギアのモデル（40文字まで) 例）タフスクリーン2ルームハウス/MDX+", maxlength:"40" %>
             </div>
 
             <div class="geartext">
-              <label for="geartext">ギアの説明</label>
+              <label for="geartext">ギアの説明*</label>
               <%= f.text_area :text, class:"form-control", id:"geartext", placeholder:"ギアの説明（1,000文字まで）例）最大収容人数5人のツールームテント。家族4人でちょうどいいサイズ感。組み立ても簡単で頑張れば女性ひとりでも立てられる。" ,rows:"7" ,maxlength:"1000" %>
             </div>
             <br>
