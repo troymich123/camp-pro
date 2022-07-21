@@ -25,8 +25,12 @@
             <% end %>
             </p>
             <div>
+            <%= link_to follows_user_path(@user), class:"link-dark" do %>
             フォロー数: <%= @following_users.count %>人
+            <% end %> 
+            <%= link_to followers_user_path(@user), class: "link-dark" do %>
             フォロワー数: <%= @follower_users.count %>人
+            <% end %>
             </div>
             <div>
             登録ギア数: <%= @posts.count %>個
