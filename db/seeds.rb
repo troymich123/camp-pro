@@ -12,7 +12,7 @@ User.create!(
   password_confirmation: "a000000"
 )
 
-10.times do |n|
+8.times do |n|
   User.create!(
     nickname: Faker::JapaneseMedia::DragonBall.character,
     email: Faker::Internet.unique.email,
@@ -22,7 +22,7 @@ User.create!(
 end
 
 2.times do |n|
-  User.each do |user|
+  User.all.each do |user|
     user.posts.create!(
       user_id: user.id,
       category_id: Faker::Number.within(range: 2..65),
