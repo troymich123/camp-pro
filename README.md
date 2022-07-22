@@ -40,11 +40,17 @@ http://3.115.190.100/
 # 実装した機能についての画像やGIFおよびその説明
 
 - ギアをカテゴリー毎、ブランド毎に登録できる
-![タイトルなし](https://user-images.githubusercontent.com/90191399/180391755-9e196521-e8c6-43be-a5d2-1884e0a0765f.gif)
+![ギア登録](https://user-images.githubusercontent.com/90191399/180391755-9e196521-e8c6-43be-a5d2-1884e0a0765f.gif)
 
 - ギアに対していいね！(非同期通信)やコメントができる
+![いいね](https://user-images.githubusercontent.com/90191399/180393886-5c4cc50c-8dbf-41bb-9a66-06e3ed0003fa.gif)
+
 - 自分以外のユーザーをフォローできる
+![フォロー](https://user-images.githubusercontent.com/90191399/180394136-fa95c06f-d90b-4d35-92fc-d5dec08a7c78.gif)
+
 - ギアを検索できる
+![ギア検索](https://user-images.githubusercontent.com/90191399/180394354-887fd5d3-b71d-4014-bed7-3bcfd48e5fdd.gif)
+
 
 # 実装予定の機能
 
