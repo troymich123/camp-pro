@@ -1,6 +1,13 @@
 User.create!(
-  nickname: "テストキャンパー",
+  nickname: "家族キャンパー",
   email: "test@test",
+  password: "a000000",
+  password_confirmation: "a000000"
+)
+
+User.create!(
+  nickname: "ソロキャンパー",
+  email: "test2@test",
   password: "a000000",
   password_confirmation: "a000000"
 )
@@ -14,8 +21,8 @@ User.create!(
   )
 end
 
-10.times do |n|
-  User.first(2).each do |user|
+2.times do |n|
+  User.each do |user|
     user.posts.create!(
       user_id: user.id,
       category_id: Faker::Number.within(range: 2..65),
