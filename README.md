@@ -48,7 +48,7 @@ http://3.115.190.100/
 - 自分以外のユーザーをフォローできる
 ![フォロー](https://user-images.githubusercontent.com/90191399/180394136-fa95c06f-d90b-4d35-92fc-d5dec08a7c78.gif)
 
-- ギアを検索できる
+- ギア名や説明内容を検索できる
 ![ギア検索](https://user-images.githubusercontent.com/90191399/180394354-887fd5d3-b71d-4014-bed7-3bcfd48e5fdd.gif)
 
 
