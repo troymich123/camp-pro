@@ -1,9 +1,9 @@
 <div class="col">
   <div class="card shadow-sm">
     <% if post.image.present? %>
-      <%= image_tag post.image, class: "post-img" %>
+      <%= image_tag post.image, class: "w-100 post-img img-fulid" %>
     <% else %>
-      <%= image_tag "nophoto.png", size:"300x200", class: "post-img" %>
+      <%= image_tag "nophoto.png", size:"300x200", class: "w-100 post-img img-fluid" %>
     <% end %>
     <div class="card-body">
       <p><small>
