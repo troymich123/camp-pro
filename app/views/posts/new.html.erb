@@ -4,47 +4,46 @@
     <div class="container-fluid text-center bg-light">
     <h4 class="text-center mt-2 py-3 bg-light">ギア新規登録</h4>
 
-      <div class="row-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
+      <div class="col-xl-6 card mb-3 p-4 mx-auto shadow-sm">
 
         <%= form_with model: @post, id: 'new_post', local: true do |f| %>
           <%= render 'shared/error_messages', model: f.object %>
 
-          <div class="col">
-            <div id="previews"></div>
-            <div class="img-upload">
-              <div class="click-upload">
-                <label for="gearimagepost">ギア画像</label>
-                <%= f.file_field :image, class:"form-control", id:"gearimagepost" %>
-              </div>
-            </div>
-
-            <div class="inputcategory">
-              <label for="inputcategory">カテゴリー*</label>
-              <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control", id:"inputcategory"}) %>
-            </div>
-
-            <div class="inputbrand">
-              <label for="inputbrand">ブランド*</label>
-              <%= f.collection_select(:brand_id, Brand.all, :id, :name, {}, {class:"form-control", id:"inputbrand"}) %>
-            </div>
-
-
-            <div class="gearmodel">
-              <label for="gearmodel">ギア名*</label>
-              <%= f.text_area :gearmodel, class:"form-control", id:"gearmodel", placeholder:"ギアのモデル（40文字まで) 例）タフスクリーン2ルームハウス/MDX+", maxlength:"40" %>
-            </div>
-
-            <div class="geartext">
-              <label for="geartext">ギアの説明*</label>
-              <%= f.text_area :text, class:"form-control", id:"geartext", placeholder:"ギアの説明（1,000文字まで）例）最大収容人数5人のツールームテント。家族4人でちょうどいいサイズ感。組み立ても簡単で頑張れば女性ひとりでも立てられる。" ,rows:"7" ,maxlength:"1000" %>
-            </div>
-            <br>
-            <div class="submitchange">
-              <%= f.submit "登録する" , class:"btn btn-secondary btn-sm" %>
-              <%= link_to 'もどる', root_path, class:"btn btn-sm btn-outline-secondary" %>
+          <div id="previews"></div>
+          <div class="img-upload">
+            <div class="click-upload">
+              <label for="gearimagepost">ギア画像</label>
+              <%= f.file_field :image, class:"form-control", id:"gearimagepost" %>
             </div>
           </div>
+
+          <div class="inputcategory">
+            <label for="inputcategory">カテゴリー*</label>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control", id:"inputcategory"}) %>
+          </div>
+
+          <div class="inputbrand">
+            <label for="inputbrand">ブランド*</label>
+            <%= f.collection_select(:brand_id, Brand.all, :id, :name, {}, {class:"form-control", id:"inputbrand"}) %>
+          </div>
+
+          <div class="gearmodel">
+            <label for="gearmodel">ギアのモデル名*</label>
+            <%= f.text_area :gearmodel, class:"form-control", id:"gearmodel", placeholder:"ギアのモデル（40文字まで) 例）タフスクリーン2ルームハウス/MDX+", maxlength:"40" %>
+          </div>
+
+          <div class="geartext">
+            <label for="geartext">ギアの説明*</label>
+            <%= f.text_area :text, class:"form-control", id:"geartext", placeholder:"ギアの説明（1,000文字まで）例）最大収容人数5人のツールームテント。家族4人でちょうどいいサイズ感。組み立ても簡単で頑張れば女性ひとりでも立てられる。" ,rows:"7" ,maxlength:"1000" %>
+          </div>
+          <br>
+          <div class="submitchange">
+            <%= f.submit "登録する" , class:"btn btn-secondary btn-sm" %>
+            <%= link_to 'もどる', root_path, class:"btn btn-sm btn-outline-secondary" %>
+          </div>
+
         <% end %>
+
       </div>
     </div>
   </main>

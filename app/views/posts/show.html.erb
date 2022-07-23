@@ -2,7 +2,8 @@
 
   <main>
     <div class="container-fluid text-center py-3 bg-light">
-      <div class="card w-90 p-3 mx-auto shadow-sm">
+      <div class="col-lg-6 card w-90 p-3 mx-auto shadow-sm">
+
         <h4 class="card-title"><%= @post.gearmodel %></h4>
         <p><small>
           <%= link_to @post.brand.name, "/posts/brand/#{@post.brand_id}", class:"text-muted" %> > 
@@ -31,7 +32,7 @@
     </div>
 
   <div class="container-fluid text-center pb-1 bg-light">
-    <div class="card mb-3 w-90 p-4 mx-auto shadow-sm">
+    <div class="col-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
       <ul class="comments_lists">
         <% @comments.each do |comment| %>
           <%= comment.text %> 
