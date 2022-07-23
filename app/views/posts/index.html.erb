@@ -1,7 +1,6 @@
-<%= render "shared/header" %>
+  <%= render "shared/header" %>
 
   <main>
-  
     <section class="text-center container-fluid bg-light">
       <div class='title-contents'>
         <div class="row py-lg-3">
@@ -16,27 +15,30 @@
       </div>
     </section>
 
-    <h4 class="text-center mt-2 py-3 bg-light">-最新ギア一覧-</h4>
+    <section>
+      <h4 class="text-center mt-2 py-3 bg-light border">-最新ギア一覧-</h4>
 
-    <div class="album py-3 bg-light">
-      <%= render "shared/album" %>
-      <br>
-      <%= paginate @posts, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center" %>
-    </div>
-
-    <h4 class="text-center mt-2 py-3 bg-light">-人気ギア一覧-</h4>
-
-    <div class="album py-3 bg-light">
-      <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <% @posts_best.first(3).each do |post| %>
-            <%= render "shared/albumdetail", post: post %>
-          <% end %>
-        </div>
+      <div class="album py-3 bg-light">
+        <%= render "shared/album" %>
+        <br>
+        <%= paginate @posts, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center" %>
       </div>
-      <br>
-    </div>
+    </section>
 
+    <section>
+      <h4 class="text-center mt-2 py-3 bg-light border">-人気ギア一覧-</h4>
+
+      <div class="album py-3 bg-light">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <% @posts_best.first(3).each do |post| %>
+              <%= render "shared/albumdetail", post: post %>
+            <% end %>
+          </div>
+        </div>
+        <br>
+      </div>
+    </section>
   </main>
 
-<%= render "shared/footer" %>
+  <%= render "shared/footer" %>
