@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments
+    @comments = @post.comments.order(id: 'DESC')
   end
 
   def edit
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
 
   def category
     @post = Post.find_by(category_id: params[:id])
-    @posts = Post.where(category_id: params[:id]).order('created_at DESC')
+    @posts = Post.where(category_id: params[:id]).order(created_at: 'DESC')
   end
 
   def brand
