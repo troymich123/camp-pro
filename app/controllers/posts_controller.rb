@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_root, only: [:edit, :destroy]
 
   def index
     @posts = Post.all.includes(:likes).order(updated_at: :desc).page(params[:page]).per(6)
@@ -31,25 +33,23 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.order(id: 'DESC')
   end
 
   def edit
-    @post = Post.find(params[:id])
+    
   end
 
   def update
-    if @post.update(item_params)
-      redirect_to item_path
+    if @post.update(post_params)
+      redirect_to post_path
     else
       render :edit
     end
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     #経験値ダウン・レベルダウン機能
     user = User.find(current_user.id)
@@ -79,5 +79,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:category_id, :brand_id, :gearmodel, :text, :image).merge(user_id: current_user.id)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def redirect_root
+    redirect_to root_path unless user_signed_in? && current_user.id == @post.user_id
   end
 end
