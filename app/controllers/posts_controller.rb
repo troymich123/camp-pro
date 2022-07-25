@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.includes(:likes).order(updated_at: :desc).page(params[:page]).per(6)
-    @posts_best = Post.all.includes(:likes).sort {|a,b| b.likes.size <=> a.likes.size}
+    @posts_best = Post.all.includes(:likes).sort { |a, b| b.likes.size <=> a.likes.size }
   end
 
   def new
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      #経験値アップ・レベルアップ機能
+      # 経験値アップ・レベルアップ機能
       user = User.find(current_user.id)
       user.exp_point = user.exp_point + 1
       user.update(exp_point: user.exp_point)
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
         user.rank_name = ranksetting.rank_name
         user.update(rank: user.rank, rank_name: user.rank_name)
       end
-      #/経験値アップ・レベルアップ機能
+      # /経験値アップ・レベルアップ機能
       redirect_to root_path
     else
       render :new
@@ -38,7 +38,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
@@ -51,7 +50,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    #経験値ダウン・レベルダウン機能
+    # 経験値ダウン・レベルダウン機能
     user = User.find(current_user.id)
     user.exp_point = user.exp_point - 1
     user.update(exp_point: user.exp_point)
@@ -61,7 +60,7 @@ class PostsController < ApplicationController
       user.rank_name = ranksetting.rank_name
       user.update(rank: user.rank, rank_name: user.rank_name)
     end
-    #/経験値ダウン・レベルダウン機能
+    # /経験値ダウン・レベルダウン機能
     redirect_to root_path
   end
 

@@ -7,14 +7,14 @@ class CommentsController < ApplicationController
     else
       @post = @comment.post
       @comments = @post.comments
-      render "posts/show"
+      render 'posts/show'
     end
   end
 
   def destroy
     @post_comment = Comment.find_by(user_id: current_user.id, post_id: params[:post_id])
     @post_comment.destroy
-    redirect_to "posts/show"
+    redirect_to 'posts/show'
   end
 
   private
@@ -22,5 +22,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id, post_id: params[:post_id])
   end
-
 end

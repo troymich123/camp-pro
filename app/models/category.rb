@@ -64,7 +64,7 @@ class Category < ActiveHash::Base
     { id: 62, name: 'ポータブル電源' },
     { id: 63, name: '手斧' },
     { id: 64, name: 'ショベル/スコップ' },
-    { id: 65, name: '十徳ナイフ/万能ナイフ' },
+    { id: 65, name: '十徳ナイフ/万能ナイフ' }
   ]
 
   include ActiveHash::Associations

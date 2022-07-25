@@ -18,14 +18,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_avatar
-    if user_signed_in?
-      @myuser = User.find(current_user[:id])
-    end
+    @myuser = User.find(current_user[:id]) if user_signed_in?
   end
 
   def set_search
     @search = Post.ransack(params[:q])
     @posts = @search.result.order(created_at: :desc).page(params[:page]).per(6)
   end
-
 end

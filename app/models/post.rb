@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   belongs_to :brand
   has_one_attached :image
 
-  with_options presence: true, numericality: { other_than: 1, message: "を入力してください" } do
+  with_options presence: true, numericality: { other_than: 1, message: 'を入力してください' } do
     validates :category_id
     validates :brand_id
   end

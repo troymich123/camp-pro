@@ -31,7 +31,7 @@ class Brand < ActiveHash::Base
     { id: 29, name: 'ゼログラム(ZEROGRAM)' },
     { id: 30, name: 'キャンバスキャンプ(CanvasCamp)' },
     { id: 31, name: 'ケシュア(Quechua)' },
-    { id: 32, name: 'サウスフィールド(SOUTH FIELD)' },
+    { id: 32, name: 'サウスフィールド(SOUTH FIELD)' }
   ]
 
   include ActiveHash::Associations

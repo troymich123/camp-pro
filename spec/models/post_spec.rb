@@ -16,27 +16,27 @@ RSpec.describe Post, type: :model do
       it 'imageが空では投稿できない' do
         @post.image = nil
         @post.valid?
-        expect(@post.errors.full_messages).to include("Imageを入力してください")
+        expect(@post.errors.full_messages).to include('Imageを入力してください')
       end
       it 'category_idが空では出品できない' do
         @post.category_id = 1
         @post.valid?
-        expect(@post.errors.full_messages).to include("Categoryを入力してください")
+        expect(@post.errors.full_messages).to include('Categoryを入力してください')
       end
       it 'brand_idが空では出品できない' do
         @post.brand_id = 1
         @post.valid?
-        expect(@post.errors.full_messages).to include("Brandを入力してください")
+        expect(@post.errors.full_messages).to include('Brandを入力してください')
       end
       it 'gearmodelが空では出品できない' do
         @post.gearmodel = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("Gearmodelを入力してください")
+        expect(@post.errors.full_messages).to include('Gearmodelを入力してください')
       end
       it 'textが空では出品できない' do
         @post.text = ''
         @post.valid?
-        expect(@post.errors.full_messages).to include("Textを入力してください")
+        expect(@post.errors.full_messages).to include('Textを入力してください')
       end
       it 'userが紐付いていない場合は登録できない' do
         @post.user = nil
