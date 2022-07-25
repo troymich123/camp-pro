@@ -101,3 +101,5 @@ end
     { follower_id: follower_id, followed_id: followed_id}
   )
 end
+
+AdminUser.create!(email: 'admin@admin', password: 'password', password_confirmation: 'password') if Rails.env.development?
