@@ -1,3 +1,21 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.title-contents {
+  background-image: image-url('camp-front.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.fw-light-ext {
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.lead-ext {
+  color: white;
+}
+
+.preview-size{
+  height: 150px;
+  width: auto;
+}

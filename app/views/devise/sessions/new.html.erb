@@ -3,7 +3,7 @@
   <main>
     <div class="container-fluid text-center py-3 bg-light">
       <h4>ユーザーログイン</h4>
-      <div class="row-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
+      <div class="col-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
