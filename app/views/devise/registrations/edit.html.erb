@@ -2,8 +2,9 @@
 
   <main>
     <div class="container-fluid text-center py-3 bg-light">
-      <h4>ユーザー情報編集</h4>
-      <div class="row-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
+    <h4 class="text-center mt-2 py-3 bg-light">ユーザー情報編集</h4>
+
+      <div class="col-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "/shared/error_messages", model: f.object %>
@@ -44,7 +45,7 @@
             </div>
             <br>
             <div class="submitchange">
-              <%= f.submit "更新" , class:"btn btn-secondary btn-sm" %>
+              <%= f.submit "更新する" , class:"btn btn-secondary btn-sm" %>
               <%= link_to 'もどる', root_path, class:"btn btn-sm btn-outline-secondary" %>
             </div>
           </div>
