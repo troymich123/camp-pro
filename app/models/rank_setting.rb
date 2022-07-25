@@ -1,0 +1,2 @@
+class RankSetting < ApplicationRecord
+end

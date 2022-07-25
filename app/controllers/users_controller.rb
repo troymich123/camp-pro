@@ -35,5 +35,4 @@ class UsersController < ApplicationController
     @follower_users = @user.follower_user
     @posts = @user.posts.page(params[:page]).reverse_order
   end
-  
 end

@@ -35,8 +35,8 @@
           </button>
           
         </div>
-
-        <small><%= link_to post.user.nickname, user_path(post.user.id), class:"text-muted" %></small>
+        <small><%= image_tag "rank/#{post.user.rank}.png", size: "32x32", class:"rounded-circle" %>
+        <%= link_to post.user.nickname.truncate(18), user_path(post.user.id), class:"text-muted" %></small>
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_21_091103) do
+ActiveRecord::Schema.define(version: 2022_07_24_062724) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -89,6 +89,14 @@ ActiveRecord::Schema.define(version: 2022_07_21_091103) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "rank_settings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "rank"
+    t.string "rank_name"
+    t.integer "threshold"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "follower_id", null: false
     t.bigint "followed_id", null: false
@@ -108,6 +116,9 @@ ActiveRecord::Schema.define(version: 2022_07_21_091103) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
+    t.integer "rank", default: 1
+    t.string "rank_name", default: "ルーキーⅣ"
+    t.integer "exp_point", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
