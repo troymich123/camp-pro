@@ -14,7 +14,7 @@
             <% end %><br>
             現在のランク:<br>
             <%= image_tag "rank/#{@user.rank}.png", size: "64x64", class:"rounded-circle" %><br>
-            キャンプ<%= @user.rank_name %>
+            <%= @user.rank_name %>
             <p class="d-flex justify-content-end">
             <% if user_signed_in? %>
               <% if user_signed_in? && @user == current_user %>
