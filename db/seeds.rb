@@ -35,14 +35,20 @@ User.create!(
   nickname: "家族キャンパー",
   email: "test@test",
   password: "a000000",
-  password_confirmation: "a000000"
+  password_confirmation: "a000000",
+  rank: "26",
+  rank_name: "プレデター",
+  exp_point: "92"
 )
 
 User.create!(
   nickname: "ソロキャンパー",
   email: "test2@test",
   password: "a000000",
-  password_confirmation: "a000000"
+  password_confirmation: "a000000",
+  rank: "25",
+  rank_name: "マスター",
+  exp_point: "84"
 )
 
 8.times do |n|
@@ -77,4 +83,21 @@ end
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/test.jpg"), filename:"test.jpg")
     )
   end
+end
+
+[
+  ['1', '2'],
+  ['1', '3'],
+  ['1', '4'],
+  ['1', '5'],
+  ['1', '6'],
+  ['2', '1'],
+  ['3', '1'],
+  ['4', '1'],
+  ['5', '1'],
+  ['6', '1']
+].each do |follower_id, followed_id|
+  Relationship.create!(
+    { follower_id: follower_id, followed_id: followed_id}
+  )
 end
