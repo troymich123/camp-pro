@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet">
   <title>Camp Pro</title>
 </head>
 <body>
@@ -19,26 +20,20 @@
           <li><a href="/brands" class="nav-link px-2 link-dark">ブランド</a></li>
         </ul>
 
-        <div class="bg-light mb-3 mb-lg-0 me-lg-3">
-          <form class="form-inline">
-            <button class="btn btn-secondary" type="button">
-              <%= link_to "ギア登録", new_post_path, class:'text-decoration-none text-reset' %>
-            </button>
-          </form>
-        </div>
-
-        <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <div class="col-8 col-lg-auto mb-3 mb-lg-0 me-lg-3">
           <%= search_form_for @search, url: search_posts_path do |f| %>
             <%= f.text_field :gearmodel_or_text_cont, placeholder: 'ギア検索...', class:"form-control" %>
           <% end %>
         </div>
 
-        <div class="dropdown text-end">
+        <div class="col-2 col-lg-auto mb-3 mb-lg-0 me-md-3 dropdown text-end">
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-toggle="dropdown" aria-expanded="false">
             <% if user_signed_in? && @myuser.avatar.attached? %>
               <%= image_tag @myuser.avatar, size: "32x32", class:"mx-auto rounded-circle" %>
-            <% else %>
+            <% elsif user_signed_in? %>
               <%= image_tag "noavatar.png", size: "32x32", class:"mx-auto rounded-circle" %>
+            <% else %>
+              <%= image_tag "notloggedin.jpeg", size: "32x32", class:"mx-auto rounded-circle" %>
             <% end %>
           </a>
           <ul class="dropdown-menu dropdown-menu-right text-small" aria-labelledby="dropdownUser1">
@@ -53,6 +48,14 @@
               <li><%= link_to 'ユーザー登録', new_user_registration_path, class: "dropdown-item" %></li>
             <% end %>
           </ul>
+        </div>
+
+        <div class="bg-light mb-3 mb-lg-0 me-lg-3">
+          <form class="form-inline">
+            <button class="btn btn-secondary" type="button">
+              <%= link_to "ギア登録", new_post_path, class:'text-decoration-none text-reset' %>
+            </button>
+          </form>
         </div>
 
       </div>

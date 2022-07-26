@@ -4,17 +4,14 @@
     <div class="container-fluid bg-light">
       <div class="card w-90 p-0 mx-auto shadow-sm">
         <div class="card-body">
-          <h4 class="text-center py-3 bg-light border"><%= @user.nickname %>さんのギア一覧</h4>
+          <h4 class="text-center py-3 bg-light border fw-bold"><%= @user.nickname %>さんのマイページ</h4>
 
           <div class="text-center bg-light p-3 mb-2">
             <% if @user.avatar.attached? %>
-              <%= image_tag @user.avatar, size: "64x64", class:"rounded-circle img-fluid" %>
+              <%= image_tag @user.avatar, size: "64x64", class:"img-thumbnail img-fluid" %>
             <% else %>
-              <%= image_tag "noavatar.png", size: "64x64", class:"rounded-circle img-fluid" %>
+              <%= image_tag "noavatar.png", size: "128x128", class:"img-thumbnail img-fluid" %>
             <% end %><br>
-            キャンパーランク:<br>
-            <%= image_tag "rank/#{@user.rank}.png", size: "64x64", class:"rounded-circle" %><br>
-            <%= @user.rank_name %>
             <p class="d-flex justify-content-end">
             <% if user_signed_in? %>
               <% if user_signed_in? && @user == current_user %>
@@ -29,6 +26,9 @@
               <% end %>
             <% end %>
             </p>
+            キャンパーランク：<%= @user.rank_name %><br>
+            <%= image_tag "rank/#{@user.rank}.png", size: "64x64", class:"rounded-circle bg-white" %><br>
+
             <div>
             <%= link_to follows_user_path(@user), class:"link-dark" do %>
             フォロー数: <%= @following_users.count %>人

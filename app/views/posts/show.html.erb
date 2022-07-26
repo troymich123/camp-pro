@@ -16,6 +16,11 @@
           <%= image_tag "nophoto.png", size:"300x200", class: "mx-auto rounded w-75 img-fluid" %>
         <% end %>
 
+        <div class="mt-2" >
+          <%= link_to '', "https://twitter.com/share?hashtags=CampPro,キャンプ沼", title: 'Twitter', target: '_blank', class: 'fa-brands fa-twitter-square fa-2x text-decoration-none', style:'color:dodgerblue;' %>
+          <%= link_to '', "http://line.me/R/msg/text/?=#{@post.user.nickname}さんのギアがシェアされました%0a#{request.url}%0ali", title: 'LINE', target: '_blank', class: 'fa-brands fa-line fa-2x text-decoration-none', style:'color:limegreen;' %>
+        </div>
+
         <div class="card-body">
           <p class="card-title">オーナー：<%= link_to @post.user.nickname, user_path(@post.user.id), class:"text-muted" %>さん</p>
           <p class="card-text">ギアの説明：<%= @post.text %></p>
@@ -27,6 +32,7 @@
               <%= link_to "削除", post_path, method: :delete, class:'text-reset' %>
             </button>
           <% end %>
+
         </div>
       </div>
     </div>
