@@ -27,7 +27,7 @@
             <% end %>
             </p>
             キャンパーランク：<%= @user.rank_name %><br>
-            <%= image_tag "rank/#{@user.rank}.png", size: "64x64", class:"rounded-circle bg-white" %><br>
+            <%= image_tag "rank/#{@user.rank}.png", size: "64x64", class:"rounded-circle bg-white shadow" %><br>
 
             <div>
             <%= link_to follows_user_path(@user), class:"link-dark" do %>
