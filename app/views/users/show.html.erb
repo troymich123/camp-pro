@@ -26,7 +26,8 @@
               <% end %>
             <% end %>
             </p>
-            キャンパーランク：<%= @user.rank_name %><br>
+            キャンパーランク: <%= @user.rank_name %><br>
+            キャンパーExp: <%= @user.exp_point %>P<br>
             <%= image_tag "rank/#{@user.rank}.png", size: "64x64", class:"rounded-circle bg-white shadow" %><br>
 
             <div>
