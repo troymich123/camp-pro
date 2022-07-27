@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <header class="p-3 mb-3 border-bottom">
+  <header class="p-1 mb-2 border-bottom">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <%= link_to image_tag("logo.png", size: "64x64", class:"img-fluid rounded-3"), "/" %>
@@ -33,7 +33,7 @@
             <% elsif user_signed_in? %>
               <%= image_tag "noavatar.png", size: "32x32", class:"mx-auto rounded-circle" %>
             <% else %>
-              <%= image_tag "notloggedin.jpeg", size: "32x32", class:"mx-auto rounded-circle" %>
+              <i class="fa-solid fa-user fa-2x mx-auto rounded-circle"></i>
             <% end %>
           </a>
           <ul class="dropdown-menu dropdown-menu-right text-small" aria-labelledby="dropdownUser1">
