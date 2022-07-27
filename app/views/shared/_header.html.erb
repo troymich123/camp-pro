@@ -29,6 +29,7 @@
           <% if user_signed_in? %>
             <li><%= link_to 'ギア登録', new_post_path, class: "dropdown-item" %></li>
             <li><%= link_to 'マイページ', user_path(current_user.id), class: "dropdown-item" %></li>
+            <li><%= link_to 'フォローしているユーザー', follows_user_path(@myuser), class: "dropdown-item" %></li>
             <li><%= link_to 'ユーザー情報編集', edit_user_registration_path, class:'dropdown-item' %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>

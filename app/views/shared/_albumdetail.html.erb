@@ -1,7 +1,7 @@
 <div class="col">
   <div class="card shadow-sm">
     <% if post.image.present? %>
-      <%= image_tag post.image, class: "w-100 rounded-top post-img img-fulid" %>
+      <%= link_to image_tag(post.image, class: "w-100 rounded-top post-img img-fulid"), post_path(post.id) %>
     <% else %>
       <%= image_tag "nophoto.png", size:"300x200", class: "w-100 rounded-top post-img img-fluid" %>
     <% end %>
@@ -10,7 +10,7 @@
         <%= link_to post.brand.name, "/posts/brand/#{post.brand_id}", class:"text-muted" %> > 
         <%= link_to post.category.name, "/posts/category/#{post.category_id}", class:"text-muted" %>
       </small></p>
-      <h5><%= post.gearmodel %></h5>
+      <h5><%= link_to post.gearmodel, post_path(post.id), class:"text-decoration-none text-reset" %></h5>
       <p class="card-text"><%= post.text.truncate(30) %></p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
@@ -23,15 +23,14 @@
             </button> 
           <% else %>
             <button type="button" class="btn btn-sm btn-outline-secondary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
-              </svg>
+              <i class="fa-regular fa-lg fa-heart"></i>
               <a><%= post.likes.count %></a>
             </button> 
           <% end %>
 
           <button type="button" class="btn btn-sm btn-outline-secondary">
-            <%= link_to '詳細', post_path(post.id), class:'text-decoration-none text-reset' %>
+            <i class="fa-regular fa-lg fa-message"></i>
+            <a><%= post.comments.count %></a>
           </button>
           
         </div>

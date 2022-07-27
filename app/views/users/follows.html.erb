@@ -46,12 +46,14 @@
                 <% @users.each do |user| %>
                 <div class="col">
                   <div class="card shadow-sm">
-                    <%= image_tag "noavatar.png", size: "200x200", class: "img-fluid post-img" %>
+                    <% if user.avatar.attached? %>
+                      <%= image_tag user.avatar, size: "200x200", class: "img-fluid post-img" %>
+                    <% else %>
+                      <%= image_tag "noavatar.png", size: "200x200", class: "img-fluid post-img" %>
+                    <% end %>
                     <div class="card-body">
                       <div class="justify-content-between align-items-center">
                         <div><%= link_to user.nickname, user_path(user.id), class:"small text-muted" %></div>
-                        <div class="small">フォロー<%= user.following_user.count %>人</div>
-                        <div class="small">フォロワー<%= user.follower_user.count %>人</div>
                       </div>
                     </div>
                   </div>
