@@ -33,7 +33,7 @@
             <% elsif user_signed_in? %>
               <%= image_tag "noavatar.png", size: "32x32", class:"mx-auto rounded-circle" %>
             <% else %>
-              <i class="fa-solid fa-user fa-2x mx-auto rounded-circle"></i>
+              <%= image_tag "notsignedin.jpg", size: "32x32", class:"mx-auto rounded-circle" %>
             <% end %>
           </a>
           <ul class="dropdown-menu dropdown-menu-right text-small" aria-labelledby="dropdownUser1">
