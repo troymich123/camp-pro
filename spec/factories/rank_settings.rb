@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :rank_setting do
-    rank { 1 }
-    rank_name { 'MyString' }
+    rank { 2 }
+    rank_name { 'ルーキーⅢ' }
     threshold { 1 }
   end
 end
