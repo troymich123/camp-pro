@@ -8,7 +8,9 @@ Camp Pro
 
 # URL
 
-http://3.115.190.100/
+https://camp-pro.jp
+
+(http://3.115.190.100/)
 
 # テスト用アカウント
 
@@ -62,8 +64,8 @@ http://3.115.190.100/
 
 # 実装予定の機能
 
-- キャンパーランク機能(ゲーム要素)
-- SNS認証機能
+- SNS認証機能(Firebase, Auth0等)
+- Postテーブル拡張
 - トップページでユーザーランキング等
 - トップページでフォロー済ユーザーの投稿表示
 
@@ -79,7 +81,7 @@ http://3.115.190.100/
 
 - フロントエンド: HTML/CSS/JavaScript/JQuery/bootstrap
 - バックエンド: Ruby/Rails
-- インフラ: AWS(EC2/S3)
+- インフラ: AWS(EC2/S3/Route53/ACM), Cloudflare
 - テスト: RSpec
 - テキストエディタ: VSCode
 - タスク管理: GitHub

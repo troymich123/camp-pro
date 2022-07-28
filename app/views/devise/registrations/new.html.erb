@@ -22,7 +22,7 @@
 
             <div class="inputemail">
               <label for="inputemail">e-mail*</label>
-              <%= f.email_field :email, autocomplete: "email", class:"form-control", id:"inputbrand" %>
+              <%= f.email_field :email, autocomplete: "email", class:"form-control", id:"email" %>
             </div>
 
             <div class="password">
@@ -34,8 +34,8 @@
             </div>
 
             <div class="field">
-              <label for="new-password">パスワード再入力*</label>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id:"new-password" %>
+              <label for="password-confirmation">パスワード再入力*</label>
+              <%= f.password_field :password_confirmation, autocomplete: "password-confirmation", class:"form-control", id:"password-confirmation" %>
             </div>
             <br>
             <div class="submitchange">

@@ -21,9 +21,9 @@
               <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", maxlength:"40", class:"form-control", id:"nickname" %>
             </div>
 
-            <div class="inputemail">
-              <label for="inputemail">e-mail*</label>
-              <%= f.email_field :email, autocomplete: "email", class:"form-control", id:"inputbrand" %>
+            <div class="email">
+              <label for="email">e-mail*</label>
+              <%= f.email_field :email, autocomplete: "email", class:"form-control", id:"email" %>
             </div>
 
             <div class="password">
@@ -31,17 +31,17 @@
               <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> 文字以上)</em>
               <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"password" %>
+              <%= f.password_field :password, autocomplete: "password", class:"form-control", id:"password" %>
             </div>
 
             <div class="field">
-              <label for="new-password">新パスワード再入力<small>※更新しない場合は空欄</small></label>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id:"new-password" %>
+              <label for="password-confirmation">新パスワード再入力<small>※更新しない場合は空欄</small></label>
+              <%= f.password_field :password_confirmation, autocomplete: "password-confirmation", class:"form-control", id:"password-confirmation" %>
             </div>
 
             <div class="field">
               <label for="current_password">現パスワード*</label>
-              <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
+              <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control", id:"current-password" %>
             </div>
             <br>
             <div class="submitchange">

@@ -5,19 +5,19 @@ RSpec.describe Post, type: :model do
     @post = FactoryBot.build(:post)
   end
 
-  describe 'ギア投稿' do
+  describe 'ギア投稿機能' do
     context 'ギアが投稿できるとき' do
-      it 'image, category_id, brand_id, gearmodel, text, user_idが存在すれば登録できる' do
+      it 'category_id, brand_id, gearmodel, text, user_idが存在すれば登録できる' do
+        expect(@post).to be_valid
+      end
+      it 'imageが存在しなくても登録できる' do
+        @post.image = nil
+        @post.valid?
         expect(@post).to be_valid
       end
     end
 
     context 'ギアが投稿できないとき' do
-      it 'imageが空では投稿できない' do
-        @post.image = nil
-        @post.valid?
-        expect(@post.errors.full_messages).to include('Imageを入力してください')
-      end
       it 'category_idが空では出品できない' do
         @post.category_id = 1
         @post.valid?

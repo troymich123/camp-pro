@@ -6,16 +6,16 @@
       <div class="col-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render "shared/error_messages", model: f.object %>
 
-            <div class="inputemail">
-              <label for="inputemail">Eメール</label>
-              <%= f.email_field :email, autocomplete: "email", class:"form-control", id:"inputemail" %>
+            <div class="email">
+              <label for="email">Eメール</label>
+              <%= f.email_field :email, autocomplete: "email", class:"form-control", id:"email" %>
             </div>
 
             <div class="password">
               <label for="password">パスワード</label>
-              <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"password" %>
+              <%= f.password_field :password, autocomplete: "password", class:"form-control", id:"password" %>
             </div>
             <br>
             <% if devise_mapping.rememberable? %>
