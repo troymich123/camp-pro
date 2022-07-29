@@ -6,7 +6,7 @@ def basic_pass(path)
   visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
 end
 
-RSpec.describe "Comments", type: :system do
+RSpec.describe "コメント投稿機能", type: :system do
   before do
     @post = FactoryBot.create(:post)
     @post_comment = Faker::Lorem.sentence
