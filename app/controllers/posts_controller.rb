@@ -19,11 +19,13 @@ class PostsController < ApplicationController
       user = User.find(current_user.id)
       user.exp_point = user.exp_point + 1
       user.update(exp_point: user.exp_point)
-      ranksetting = RankSetting.find_by(rank: user.rank + 1)
-      if ranksetting.threshold <= user.exp_point
-        user.rank = user.rank + 1
-        user.rank_name = ranksetting.rank_name
-        user.update(rank: user.rank, rank_name: user.rank_name)
+      if user.rank < 26
+        ranksetting = RankSetting.find_by(rank: user.rank + 1)
+        if ranksetting.threshold <= user.exp_point
+          user.rank = user.rank + 1
+          user.rank_name = ranksetting.rank_name
+          user.update(rank: user.rank, rank_name: user.rank_name)
+        end
       end
       # /経験値アップ・レベルアップ機能
       redirect_to root_path
@@ -54,11 +56,13 @@ class PostsController < ApplicationController
     user = User.find(current_user.id)
     user.exp_point = user.exp_point - 1
     user.update(exp_point: user.exp_point)
-    ranksetting = RankSetting.find_by(rank: user.rank - 1)
-    if ranksetting.threshold <= user.exp_point
-      user.rank = user.rank - 1
-      user.rank_name = ranksetting.rank_name
-      user.update(rank: user.rank, rank_name: user.rank_name)
+    if user.rank > 1
+      ranksetting = RankSetting.find_by(rank: user.rank - 1)
+      if ranksetting.threshold <= user.exp_point
+        user.rank = user.rank - 1
+        user.rank_name = ranksetting.rank_name
+        user.update(rank: user.rank, rank_name: user.rank_name)
+      end
     end
     # /経験値ダウン・レベルダウン機能
     redirect_to root_path
