@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Relationship, type: :model do
   let(:relationship) { FactoryBot.create(:relationship) }
 
-  describe '#create' do
+  describe 'ユーザーフォロー機能' do
     context "保存できる場合" do
       it "全てのパラメーターが揃っていれば保存できる" do
         expect(relationship).to be_valid
