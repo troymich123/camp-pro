@@ -25,6 +25,10 @@
         <div class="card-body">
           <p class="card-title">オーナー：<%= link_to @post.user.nickname, user_path(@post.user.id), class:"text-muted" %>さん</p>
           <p class="card-text">ギアの説明：<%= @post.text %></p>
+          <p class="card-text">参考URL：<%= @post.url %></p>
+          <p class="card-text">ギアの購入価格：<%= number_to_currency(@post.price, unit:"円") %></p>
+          <p class="card-text">所有開始時期：<%= @post.purchase_date %></p>
+          <p class="card-text">所有終了時期：<%= @post.release_date %></p>
           <% if user_signed_in? && current_user.id == @post.user_id %>  
             <button type="button" class="btn btn-sm btn-outline-secondary">
               <%= link_to "編集", edit_post_path, method: :get, class:'text-reset' %>
@@ -40,7 +44,7 @@
 
   <div class="container-fluid text-center pb-1 bg-light">
     <div class="col-lg-6 card mb-3 w-90 p-4 mx-auto shadow-sm">
-      <ul class="comments_lists">
+      <ul class="comments_lists" id="comments">
         <% @comments.each do |comment| %>
           <%= comment.text %> 
 

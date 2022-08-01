@@ -29,10 +29,30 @@
             <%= f.collection_select(:brand_id, Brand.all, :id, :name, {}, {class:"form-control", id:"inputbrand"}) %>
           </div>
 
-
           <div class="gearmodel">
             <label for="gearmodel">ギアのモデル名*</label>
             <%= f.text_area :gearmodel, class:"form-control", id:"gearmodel", placeholder:"ギアのモデル（必須 40文字まで)", maxlength:"40" %>
+          </div>
+
+          <div class="price">
+            <label for="price">購入価格(円)</label>
+            <%= f.number_field :price, class:"form-control", id:"price", placeholder:"例）¥10,000", max:"1000000" %>
+          </div>
+
+          <div class="url">
+            <label for="url">購入先URL等</label>
+            <%= f.url_field :url, class:"form-control", id:"url", placeholder:"https://" %>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="purchase_date">所有開始時期</label>
+              <%= f.date_field :purchase_date, class:"form-control", id:"purchase_date" %>
+            </div>
+            <div class="col">
+              <label for="release_date">所有終了時期</label>
+              <%= f.date_field :release_date, class:"form-control", id:"release_date" %>
+            </div>
           </div>
 
           <div class="geartext">
@@ -40,6 +60,7 @@
             <%= f.text_area :text, class:"form-control", id:"geartext", placeholder:"商品の説明（必須 1,000文字まで）例）2020年頃に1万円で購入したテントです。ポリコットン製で重量はありますが見た目に惚れて買いました。" ,rows:"7" ,maxlength:"1000" %>
           </div>
           <br>
+
           <div class="submitchange">
             <%= f.submit "更新する" , class:"btn btn-secondary btn-sm" %>
             <%= link_to 'もどる', post_path, class:"btn btn-sm btn-outline-secondary" %>

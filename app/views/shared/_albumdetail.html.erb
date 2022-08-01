@@ -3,7 +3,7 @@
     <% if post.image.present? %>
       <%= link_to image_tag(post.image, class: "w-100 rounded-top post-img img-fulid"), post_path(post.id) %>
     <% else %>
-      <%= image_tag "nophoto.png", size:"300x200", class: "w-100 rounded-top post-img img-fluid" %>
+      <%= link_to image_tag("nophoto.png", class: "w-100 rounded-top post-img img-fulid"), post_path(post.id) %>
     <% end %>
     <div class="card-body">
       <p><small>
@@ -29,8 +29,10 @@
           <% end %>
 
           <button type="button" class="btn btn-sm btn-outline-secondary">
-            <i class="fa-regular fa-lg fa-message"></i>
-            <a><%= post.comments.count %></a>
+            <%= link_to post_path(post.id, anchor:'comments') do %>
+              <i class="fa-regular fa-lg fa-message text-muted"></i>
+              <a><%= post.comments.count %></a>
+            <% end %>
           </button>
           
         </div>
