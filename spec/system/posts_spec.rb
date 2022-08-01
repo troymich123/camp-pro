@@ -15,7 +15,7 @@ RSpec.describe 'ギア登録機能', type: :system do
   end
 
   context 'ギア投稿ができるとき' do
-    it 'ログインしたユーザーはギア投稿ができ、ギア投稿すると経験値が+1増えランクが上がる' do
+    it 'ログインしたユーザーはギア投稿ができる' do
       basic_pass root_path
       sign_in(@user)
       expect(page).to have_content('ギア登録')
@@ -28,7 +28,7 @@ RSpec.describe 'ギア登録機能', type: :system do
       expect{
         click_on '登録する'
       }.to change { Post.count }.by(1)
-      # expect(@user.exp_point).to eq 1
+      # expect(@user.exp_point).to eq (1)
       # expect(@user.rank_name).to eq 'ルーキーⅢ'
     end
   end
@@ -92,7 +92,7 @@ RSpec.describe 'ギア削除機能', type: :system do
   end
 
   context 'ギア削除ができるとき' do
-    it 'ログインしたユーザーは自分のギアを削除でき経験値が-1減りランクが下がる' do
+    it 'ログインしたユーザーは自分のギアを削除できる' do
       visit root_path
       sign_in(@post1.user)
       expect(page).to have_link @post1.gearmodel
