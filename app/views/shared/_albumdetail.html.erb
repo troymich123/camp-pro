@@ -29,8 +29,8 @@
           <% end %>
 
           <button type="button" class="btn btn-sm btn-outline-secondary">
-            <%= link_to post_path(post.id, anchor:'comments') do %>
-              <i class="fa-regular fa-lg fa-message text-muted"></i>
+            <%= link_to post_path(post.id, anchor:'comments'), class:'text-decoration-none text-reset' do %>
+              <i class="fa-regular fa-lg fa-message"></i>
               <a><%= post.comments.count %></a>
             <% end %>
           </button>
